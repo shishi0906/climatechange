@@ -238,7 +238,7 @@
 
 	path.line {
             stroke: rgba(0,70,100,0.8);
-            stroke-width: 3;
+            stroke-width: 1;
             fill: none;
         }
 
@@ -442,7 +442,7 @@
 	.title-main{
 		background-color:rgba(0,0,0,0);
 		float:left;
-		width: 72%;
+		width: 100%;
 		margin-left: 2%;
 		margin-top: 0%;
 		margin-bottom: 2%;
