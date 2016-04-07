@@ -64,17 +64,19 @@
 	</head>
 	<body>
 
-		<h1>CO2 Emissions by Country</h1>
+		<h2>The Earth Is Warming</h2>
 
-		<p>Carbon dioxide emissions, 1961-2010. Data not available for the entire period for all countries. Source: <a href="http://data.worldbank.org/indicator/EN.ATM.CO2E.KT?page=6">World Bank</a>, 2014. (Based on a modified example from Scott Murray.)</p>
+		<p>It is clear that our earth is warming. Rising global temperatures have been accompanied by changes in weather and climate.
+		The chart shows the Earth’s warming climate, recorded in monthly temperature from land and sea from 1880 to 2015.
+		Temperatures are displayed in degrees above or below the 20th-century average. Thirteen of the 14 hottest years are in the 21st century.</p>
 
-		<p>Mouse over the lines to see data points and highlight a line.</p>
+		<p class=note>Mouse over the lines to see data points and highlight a line.</p>
 
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
 		<script type="text/javascript">
 			//Dimensions and padding
-			var fullwidth = 900;
-			var fullheight = 600;
+			var fullwidth = 600;
+			var fullheight = 300;
 			var margin = {top: 50, right: 100, bottom: 40, left:100};
 			var width = fullwidth - margin.left - margin.right;
 			var height = fullheight - margin.top - margin.bottom;
@@ -240,7 +242,7 @@
 	      .text(function(d) {
 	      	if (d.temperatures.length != 0) {
 	      		var lastTemperature = d.temperatures[d.temperatures.length-1].temperature;
-	      		if (+lastTemperature > 30) {
+	      		if (+lastTemperature = "2015") {
 	      			return d.year;
 	      		}
 	      	}
