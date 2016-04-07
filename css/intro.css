@@ -76,11 +76,7 @@ article {
   margin: 0;
   padding: 0;
   /*  Background fallback in case of IE8 & down, or in case video doens't load, such as with slower connections  */
-  background:url("image/front-page.jpg")no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  
   }
 
 }
