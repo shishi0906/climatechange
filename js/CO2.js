@@ -1,6 +1,6 @@
-var fullwidth = 700;
-var fullheight = 600;
-var margin = { top: 20, right: 10, bottom: 50, left: 100};
+var fullwidth = 600;
+var fullheight = 400;
+var margin = { top: 20, right: 10, bottom: 50, left: 50};
 var width = fullwidth - margin.left - margin.right;
 var height = fullheight - margin.top - margin.bottom;
 //Set up date formatting and years
