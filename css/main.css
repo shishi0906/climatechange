@@ -7,8 +7,9 @@ body {
   stroke: #B0C4DE;
   stroke-width: 2px;
   stroke-opacity: 100%;
-  font-size: 14px;
+  font-size: 16px;
   font-weight:normal;
+  
 }
 p.note {
   font-size: 10px;
@@ -19,7 +20,7 @@ p.note {
 svg {
   background-color: white;
   float:left;
-  
+
 }
 path.line {
   fill: none;
