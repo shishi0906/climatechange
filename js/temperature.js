@@ -44,11 +44,11 @@ var svg = d3.select("body")
 var tooltip = d3.select("body")
   .append("div")
   .attr("class", "tooltip");
-d3.selection.prototype.moveToFront=function(){
-  return this.each(function(){
-    this.parentNode.appendChild(this);
-  });
-};
+// d3.selection.prototype.moveToFront=function(){
+//   return this.each(function(){
+//     this.parentNode.appendChild(this);
+//   });
+// };
 //Load data
 d3.csv("data/Global temperature monthly.csv", function(data) {
   //New array with all the years, for referencing later
@@ -206,7 +206,7 @@ groups.append("text")
       .transition()
       .style("opacity", 1)
       .attr("r", 6);
-    d3.select(this).moveToFront();
+    //d3.select(this).moveToFront();
     d3.select(this).select("text").classed("hide", false);
 
 
@@ -235,7 +235,7 @@ groups.append("text")
         .attr("id", "focused");
       d3.select(this).select("text")
         .attr("id", "focused");
-      d3.select(this).moveToFront();
+      //d3.select(this).moveToFront();
       d3.select(this).selectAll("circle#highlight")
         .transition()
         .style("opacity", 1)
