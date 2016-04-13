@@ -46,7 +46,7 @@ var tooltip = d3.select("body")
   .attr("class", "tooltip");
 d3.selection.prototype.moveToFront=function(){
   return this.each(function(){
-    this.parentNode.appendChid(this);
+    this.parentNode.appendChild(this);
   });
 };
 //Load data
