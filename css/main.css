@@ -135,12 +135,12 @@ rect.overlay{
 .scalebutton {
     cursor: pointer;
 }
-path.line{
+/*path.line{
     fill: none;
     stroke-width: 1.5px;
     transition: 0.1s;
     stroke: #E3314C;
-}
+}*/
 path.area{
     fill: #E3314C;
     transition: 0.1s;
