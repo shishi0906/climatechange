@@ -109,8 +109,12 @@ d3.csv("data/Global temperature monthly.csv", function(data) {
     })
     .enter()
     .append("path")
-    .attr("class", "line")
-    .attr("d", line);
+    .classed("line", true)
+    .classed ("recentYears", function (d) {
+      if (+d[0].year>=2000 && +d[0].year<=2015)
+      return true;
+    })
+    .attr ("d", line);
     //.classed("unfocused", true) // they are not focused till mouseover
     //.attr("id", function(d) {
       // we are attaching an id to the line using the countryname, replacing
@@ -172,36 +176,15 @@ groups.append("text")
   .text(function(d) {
     return d.year;
   })
-  .classed("hide", function(d) {
+  .classed("hide", true)
+  .attr ("style", function(d) {
     // hide the labels that are too "low" to be interesting
     var lastValue = d.temperatures[d.temperatures.length -1].temperature;
-    if (lastValue == 110) {
-      return false;
-    } else {
-      return true;
+    if (lastValue == 110 ) {
+      return "display:block";
     }
   });
 
-  /*groups.append("text")
-      .datum(function(d) {
-  console.log("Here", {year: d.Year, value: d.temperatures[d.temperatures.length - 1]});
-
-      return {year: d.Year, value: d.temperatures[d.temperatures.length - 1]};
-                 })
-.attr("transform", function(d) {
-    console.log("in transform", d);
-    if (d.value) {
-      return "translate(" + xScale(dateFormat.parse(d.value.month)) + "," + yScale(+d.value.month) + ")";
-      }
-    else {
-      return null;
-      }
-    })
-  .attr("x", 3.5)
-  .attr("dy", ".35em")
-  .text(function(d) {
-    return d.year;
-  })*/
 
   //Axes
   svg.append("g")
