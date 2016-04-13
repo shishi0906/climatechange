@@ -6,86 +6,29 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:900' rel='stylesheet' type='text/css'>
     <title>Global Energy Use Overview in 2012</title>
     <style>
-        body{
-            font-family: 'Open Sans', sans-serif;
-        }
-        h2{
-            font-family: 'Roboto', sans-serif;
-            text-align: center;
-            margin: 30px;
-        }
-        p{
-            margin-bottom: 30px;
-        }
-        rect.overlay{
-            fill: none;
-        }
-        .tooltip {
-            position: absolute;
-            z-index: 10;
-            text-align: left;
-            width: 200px;
-            padding: 10px;
-            font-size: 10px;
-            font-family: Helvetica, sans-serif;
-            background: #ffffff;
-            pointer-events: none;
-            opacity: 0;
-            border: #ccc 1px solid;
-        }
-        .tooltip h3 {
-          font-size: 14px; margin: 0 0 7px 0;
-          line-height: 1.2em;
-        }
-        .tooltip .val{
-            float: right;
-            font-size: 20px;
-        }
-        .tooltip .title{
-            float: left;
-        }
-        .tooltip .desc{
-            float: left;
-            font-size: 8px;
-        }
-        .countries {
-          stroke: #fff;
-          stroke-linejoin: round;
-        }
-        .countries path.selected {
-            stroke: #000;
-            stroke-width: 0.5px;
-        }
-        .legend text.label{
-            font-size: 10px;
-            font-family: Helvetica, sans-serif;
-        }
-        .scalebutton {
-            cursor: pointer;
-        }
-        path.line{
-            fill: none;
-            stroke-width: 1.5px;
-            transition: 0.1s;
-            stroke: #E3314C;
-        }
-        path.area{
-            fill: #E3314C;
-            transition: 0.1s;
-            stroke: none;
-            opacity: 0.2;
-        }
+
     </style>
 </head>
+<body>
+  <div class="control-main">
+  <div id= "menu">
+    <ul>
+      <li><a href="CO2.html" class="arrow-left">Previous</a></li>
+      <li class="title-content">Temperature Change</li>
+      <li><a href="conclusion.html"class="arrow-right">Next</a></li>
+    </ul>
+  </div>
+              <div class="temperature">
+              <p class="temperature">It is clear that our earth is warming. Rising global temperatures have been accompanied by changes in weather and climate.
+              The chart shows the Earth’s warming climate, recorded in monthly temperature from land and sea from 1880 to 2015.
+              Temperatures are displayed in degrees above or below the 20th-century average. Thirteen of the 14 hottest years are in the 21st century.</p>
+             <p class=note>Mouse over the lines to see data points and highlight a line.</p>
+             </div>
+  </div>
 
-<div class="row col-sm-8 col-sm-offset-2 main">
-
-<h2>Temperature Change of TOP 10 GHG Emission Countries</h2>
-<p>Source: <a href="http://sdwebx.worldbank.org/climateportal/index.cfm">WorldBank</a><br/> </p>
 
 <div id="vis"></div>
 
-</div>
 
 <div id="tooltip" class="tooltip">
     <h3 class="name"></h3>
