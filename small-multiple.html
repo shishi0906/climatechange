@@ -15,19 +15,128 @@
 
   <!-- CSS concatenated and minified via ant build script-->
   <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="stylesheet" href="style.css"> -->
   <!-- end CSS-->
+<style>
+/*body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  background: url("../img/subtle_dots.png") white repeat;
+}*/
 
-  <script src="modernizr-2.0.6.min.js"></script>
+a, a:visited {
+  color: #555;
+}
+
+/*header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  height: 90px;
+  box-shadow: 0px -10px 50px #0E0C08;
+  z-index: 100000;
+  background: url("../img/subtle_dots.png") white repeat;
+  text-align: center;
+}*/
+
+h1,h5 {
+  padding:0 0 0 10px;
+  margin:0;
+}
+
+h2 {
+  color: #555;
+}
+
+
+#vis {
+  position: relative;
+  width: 400px;
+  margin-left:100px;
+  top: 20px;
+}
+
+#previews, #detail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  padding-bottom: 20px;
+}
+
+.preview {
+  position: relative;
+  float: left;
+  height:150px;
+}
+
+#detail {
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  background-color:rgba(255,255,255,0.5);
+}
+
+#detail_panel {
+  margin: 0px auto;
+  width: 800px;
+  position: relative;
+}
+
+#detail_view {
+  width: 600px;
+}
+
+.hidden {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+  -webkit-transition: opacity 500ms ease-in;
+  -moz-transition: opacity 500ms ease-in;
+  z-index: 0 !important;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+  -webkit-transition: opacity 500ms ease-in;
+  -moz-transition: opacity 500ms ease-in;
+}
+
+/*.title {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}*/
+
+.background {
+  fill: #e3eded;
+}
+
+.mouse_preview {
+  pointer-events: all;
+  cursor: pointer;
+  fill: none;
+}
+
+#legend {
+  position: fixed;
+  top: 80px;
+  left: 20px;
+  z-index: 100000;
+  overflow: visible;
+  font-size:10px;
+}
+
+</style>
+  <script src="js/modernizr-2.0.6.min.js"></script>
 </head>
 
 <body>
 
   <div id="container" class="container">
-    <header>
+
     <h1>Top 10 Greenhouse Emission (MtCO₂e‍) Countries</h1>
     <h5>Including Land- Use Change and Forestry</h5>
-    </header>
     <div id="main" role="main">
       <div id="vis">
         <div id="previews"></div>
@@ -42,21 +151,19 @@
     </div>
     <div id="legend">
     </div>
-    <footer>
-    <p>Created by Shi Li | <a href="http://www.wri.org/resources/data-sets/cait-country-greenhouse-gas-emissions-data">Data</a></p>
-    </footer>
+
   </div> <!--! end of #container -->
 
 
   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
-  <script>window.jQuery || document.write('<script src="jquery-1.7.2.min.js"><\/script>')</script>
+  <script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
 
 
-  <script defer src="plugins.js"></script>
-  <script src="coffee-script.js"></script>
-  <script src="d3.v2.js"></script>
-  <script src="tooltip.js"></script>
-  <script type="text/coffeescript" src="vis.coffee"></script>
+  <script defer src="js/plugins.js"></script>
+  <script src="js/coffee-script.js"></script>
+  <script src="js/d3.v2.js"></script>
+  <script src="js/tooltip.js"></script>
+  <script type="text/coffeescript" src="js/vis.coffee"></script>
 
   <script> // Change UA-XXXXX-X to be your site's ID
     window._gaq = [['_setAccount','UA-17355070-1'],['_trackPageview'],['_trackPageLoadTime']];

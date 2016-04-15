@@ -8,15 +8,15 @@ SmallMults = () ->
   # ---
 
   # size of the svg's that hold the small multiples
-  width = 200
-  height = 160
+  width = 100
+  height = 80
   # size of the drawing area inside the svg's to make
   # the bar charts
-  graphWidth = 180
-  graphHeight = 140
+  graphWidth = 80
+  graphHeight = 60
   # padding used underneath the bars to make space
   # for the names of the countries
-  yPadding = 12
+  yPadding = 6
   # placeholder for the data
   data = []
 
@@ -27,7 +27,7 @@ SmallMults = () ->
 
   # names will also be used to color the bars
   colorScale = d3.scale.ordinal()
-    .range(["#596673","#647381","#708090","#7e8c9b","#8c99a6",
+    .range(["#CD0000","#647381","#708090","#7e8c9b","#8c99a6",
     "#9aa6b1","#a9b2bc","#b7bfc7","#c5ccd2",
     "#d4d8dd"])
 
@@ -37,7 +37,7 @@ SmallMults = () ->
 
   # This is the amount by which we will enlarge the small chart
   # when displaying it in detail display
-  scaleFactor = 3.5
+  scaleFactor = 6
 
   # ---
   # Main entry point for our visualization.
@@ -301,7 +301,7 @@ SmallMults = () ->
 
     legend = d3.select("#legend")
       .append("svg")
-      .attr("width", 110)
+      .attr("width", 500)
       .attr("height", 500)
 
     keys = legend.selectAll("g")
@@ -310,15 +310,15 @@ SmallMults = () ->
       .attr("transform", (d,i) -> "translate(#{0},#{40 * (i + 1)})")
 
     keys.append("rect")
-      .attr("width", 30)
-      .attr("height", 30)
+      .attr("width", 5)
+      .attr("height", 5)
       .attr("fill", (d) -> colorScale(d.name))
 
     keys.append("text")
       .text((d) -> d.name)
       .attr("text-anchor", "left")
-      .attr("dx", "2.2em")
-      .attr("dy", "1.2em")
+      .attr("dx", "1em")
+      .attr("dy", "1em")
 
   return chart
 
@@ -382,4 +382,4 @@ $ ->
   display = (data) ->
     plotData("#vis", data, plot)
 
-  d3.json("GHG emission including.json", display)
+  d3.json("js/GHG emission including.json", display)
