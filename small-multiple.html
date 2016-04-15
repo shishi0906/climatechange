@@ -55,20 +55,20 @@ h2 {
   width: 400px;
   margin-left:100px;
   top: 20px;
+  height:400px;
 }
 
 #previews, #detail {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 10000;
   padding-bottom: 20px;
 }
 
 .preview {
   position: relative;
   float: left;
-  height:150px;
 }
 
 #detail {
@@ -80,7 +80,7 @@ h2 {
 
 #detail_panel {
   margin: 0px auto;
-  width: 800px;
+  width: 600px;
   position: relative;
 }
 
@@ -142,7 +142,7 @@ h2 {
         <div id="previews"></div>
         <div id="detail" class="hidden">
           <div id="detail_panel">
-            <svg width="800" height="800">
+            <svg width="600" height="600">
             <g id="detail_view"></g>
             </svg>
           </div>
