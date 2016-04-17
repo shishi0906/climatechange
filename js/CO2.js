@@ -1,6 +1,6 @@
-var fullwidth = 600;
+var fullwidth = 500;
 var fullheight = 400;
-var margin = { top: 20, right: 10, bottom: 50, left: 50};
+var margin = { top: 20, right: 50, bottom: 50, left: 50};
 var width = fullwidth - margin.left - margin.right;
 var height = fullheight - margin.top - margin.bottom;
 //Set up date formatting and years
@@ -35,6 +35,21 @@ var svg = d3.select("body")
       .attr("height", fullheight)
       .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+var path = svg
+      .append("path");
+
+      // you need a path to be created before you can get the length.
+    var totalLength = path.node().getTotalLength();
+    path
+      .attr("stroke-dasharray", totalLength + " " + totalLength)
+      .attr("stroke-dashoffset", totalLength)
+      .style("display", null) // now we can display it
+      .transition()
+        .duration(2000)
+        .ease("linear")
+        .attr("stroke-dashoffset", 0);
+
+
 d3.csv("data/CO2 concetration monthly.csv", function(myData) {
   // get the min and max of the years in the data, after parsing as dates!
   xScale.domain(d3.extent(myData, function(d){
@@ -63,6 +78,14 @@ d3.csv("data/CO2 concetration monthly.csv", function(myData) {
     .attr("fill", "none")
     .attr("stroke", "steelblue")
     .attr("stroke-width", 2);
+    var lastItem = myData[myData.length - 1];
+      svg.append("text")
+        .attr("x", xScale(dateFormat.parse(lastItem.year)))
+        .attr("y", yScale(+lastItem.emissions))
+        .attr("class", "label")
+        .text(lastItem.emissions);
+
+
   // dots go on top of the line!
  var circles = svg.selectAll("circle")
           .data(myData)
