@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scrolling Sections</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="css/line.css" /> -->
+
+<style>
+
+p {
+  padding: 20px;
+}
+#sections {
+  float:right;
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  top: 0px;
+  z-index: -10;
+  padding-bottom: 20px;
+}
+.step {
+  margin-top:100px;
+  margin-bottom: 200px;
+  font-family: "TiemposTextWeb-Regular","Georgia";
+  font-size: 16px;
+  line-height: 23px;
+  color: #767678;
+}
+#sections .title {
+  font-family: Arial,Helvetica,"san-serif";
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: #262626;
+  line-height: 1.2em;
+}
+#vis {
+  float:left;
+  display: none;
+  position: fixed;
+  top: 60px;
+  z-index: 1;
+  margin-left: 0;
+  font-size: 10px;
+}
+#page_header {
+  position: fixed;
+  margin: 20px;
+  z-index: 2;
+  width: 600px;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: none;
+  shape-rendering: crispEdges;
+}
+
+path.line {
+  fill: none;
+  stroke-width: 1px;
+}
+
+.line.normal {
+  stroke: gray;
+  stroke-opacity: .3;
+}
+
+.line.focused {
+  stroke-width: 2px;
+  stroke-opacity: 1;
+  stroke: orange;
+}
+
+
+</style>
+</head>
+<body>
+
+
+  <div id="page_header">
+    <h2> Global Temperature Is Increasing</h2>
+  </div>
+
+<div class="container">
+  <div id="graphic">
+    <div id="sections">
+      <section class="step">
+        <div class="title">Climate Change Is True.</div>
+        Ninety-seven percent of climate scientists agree that climate is warming over the past century. (Scoll Down to see details)
+      </section>
+      <section class="step">
+        <!-- case 1 -->
+        <div class="title">This is all the lines</div>
+        The Earth's climate has changed throughout history. Here are data recoded from 1880 to 2015.
+      </section>
+      <section class="step">
+        <!-- case 2 -->
+        <div class="title">Look at most recent years for Some Reason</div>
+          2013, 2014 and 2015 are the most recent years, they are also years that have highest temperature, expecially 2015, it reached the peak point throughout the whole year.
+      </section>
+      <section class="step">
+        <!-- case 3 -->
+        <div class="title">And here's 1880- 1885</div>
+        Compared with most recent years, 1880- 1885 are the most oldest years in the dataset, it is obvious that the temperature increases a lot.
+      </section>
+      <section class="step">
+        <!-- case 4-->
+        <div class="title">The lowest year</div>
+       1909- 1912 are bascially the coldest years based on the record, there is an around 150°C increases between the highest and lowest point.
+      </section>
+    </div>
+    <div id="vis">
+    </div>
+  </div>
+</div>
+<div id="extra-space"></div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://d3js.org/queue.v1.min.js"></script>
+<script src="js/mfreeman_scroller.js"></script>
+<script src="js/line-chart.js"></script>
+<script src="js/scroller_settings2.js"></script>
+</body>
+</html>
