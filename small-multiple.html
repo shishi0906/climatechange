@@ -7,119 +7,18 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Greenhouse Emission By Year</title>
+  <title>Top GHG Emission Countries</title>
 
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
 
   <!-- CSS concatenated and minified via ant build script-->
-  <!-- <link rel="stylesheet" href="css/bootstrap.min.css"> -->
-  <!-- <link rel="stylesheet" href="style.css"> -->
+
+  <link rel="stylesheet" href="css/small-multiple.css">
+
   <!-- end CSS-->
-<style>
-/*body {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
-  background: url("../img/subtle_dots.png") white repeat;
-}*/
 
-a, a:visited {
-  color: #555;
-}
-
-/*header {
-  position: fixed;
-  width: 100%;
-  top: 0px;
-  left: 0px;
-  height: 90px;
-  box-shadow: 0px -10px 50px #0E0C08;
-  z-index: 100000;
-  background: url("../img/subtle_dots.png") white repeat;
-  text-align: center;
-}*/
-
-
-
-#vis {
-  position: relative;
-  width: 400px;
-  margin-left:100px;
-  top: 20px;
-  height:400px;
-}
-
-#previews, #detail {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 10000;
-  padding-bottom: 20px;
-}
-
-.preview {
-  position: relative;
-  float: left;
-}
-
-#detail {
-  position: fixed;
-  top: 50px;
-  width: 100%;
-  background-color:rgba(255,255,255,0.5);
-}
-
-#detail_panel {
-  margin: 0px auto;
-  width: 600px;
-  position: relative;
-}
-
-#detail_view {
-  width: 600px;
-}
-
-.hidden {
-  opacity: 0;
-  transition: opacity 500ms ease-in;
-  -webkit-transition: opacity 500ms ease-in;
-  -moz-transition: opacity 500ms ease-in;
-  z-index: 0 !important;
-}
-
-.visible {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-  -webkit-transition: opacity 500ms ease-in;
-  -moz-transition: opacity 500ms ease-in;
-}
-
-/*.title {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
-}*/
-
-.background {
-  fill: #e3eded;
-}
-
-.mouse_preview {
-  pointer-events: all;
-  cursor: pointer;
-  fill: none;
-}
-
-#legend {
-  position: fixed;
-  top: 80px;
-  left: 20px;
-  z-index: 100000;
-  overflow: visible;
-  font-size:10px;
-}
-
-</style>
   <script src="js/modernizr-2.0.6.min.js"></script>
 </head>
 
@@ -131,13 +30,13 @@ a, a:visited {
       <ul>
         <li><a href="CO2.html" class="arrow-left">Previous</a></li>
         <li class="title-content">TOP10 GHG Emission</li>
-        <li><a href="map.html"class="arrow-right">Next</a></li>
+        <li><a href="worldmap.html"class="arrow-right">Next</a></li>
       </ul>
     </div>
                 <div class="temperature">
-                <p class="temperature">It is clear that our earth is warming. Rising global temperatures have been accompanied by changes in weather and climate.
-                The chart shows the Earth’s warming climate, recorded in monthly temperature from land and sea from 1880 to 2015.</p>
-               <p class=note>Mouse over the lines to see data points and highlight a line.</p>
+                <p class="temperature">This is a list of sovereign states and territories by carbon dioxide emissions including LUCF from 1990 to 2012.
+                According to recent data, these 10 countries produce around 70 percent of global GHG emissions.</p>
+               <p class=note>Click each small multiple to see details.</p>
                </div>
     </div>
     <div id="main" role="main">
@@ -145,7 +44,7 @@ a, a:visited {
         <div id="previews"></div>
         <div id="detail" class="hidden">
           <div id="detail_panel">
-            <svg width="600" height="600">
+            <svg width="400" height="600">
             <g id="detail_view"></g>
             </svg>
           </div>
