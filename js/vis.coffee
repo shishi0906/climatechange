@@ -8,8 +8,8 @@ SmallMults = () ->
   # ---
 
   # size of the svg's that hold the small multiples
-  width = 100
-  height = 80
+  width = 90
+  height = 70
   # size of the drawing area inside the svg's to make
   # the bar charts
   graphWidth = 80
@@ -28,7 +28,7 @@ SmallMults = () ->
   # names will also be used to color the bars
   colorScale = d3.scale.ordinal()
     .range(["#CD0000","#FF82AB","#FFB5C5","#87CEFF","#B0E2FF",
-    "#FFDAB9","#FFDEAD","#FFEFDB","#F0FFF0",
+    "#BFEFFF","#FFDAB9","#FFDEAD","#FFE4C4",
     "#d4d8dd"])
 
   # yPadding is removed to make room for country names
@@ -37,7 +37,7 @@ SmallMults = () ->
 
   # This is the amount by which we will enlarge the small chart
   # when displaying it in detail display
-  scaleFactor = 6
+  scaleFactor = 3.5
 
   # ---
   # Main entry point for our visualization.
@@ -118,7 +118,8 @@ SmallMults = () ->
       .attr("class", "title")
       .attr("text-anchor", "middle")
       .attr("x", graphWidth / 2)
-      .attr("dy", "1.3em")
+      .attr("dy", "1.1em")
+      .attr("font-size",10)
 
   # ---
   # This creates the additional text displayed for
@@ -140,7 +141,7 @@ SmallMults = () ->
       .attr("y", graphHeight - yPadding)
       .attr("dy", "1.3em")
       .attr("x", (d) -> xScale(d.name) + xScale.rangeBand() / 2)
-      .attr("font-size", 5)
+      .attr("font-size", 3)
 
 
 
@@ -154,7 +155,7 @@ SmallMults = () ->
       .attr("y", (d) -> (graphHeight - yScale(d.value) - yPadding))
       .attr("dy", (d) -> if yScale(d.value) < 10 then "-0.3em" else "1.1em")
       .attr("x", (d) -> xScale(d.name) + xScale.rangeBand() / 2)
-      .attr("font-size", 5)
+      .attr("font-size", 3)
 
   # ---
   # Shows the detail view for a given element
@@ -258,9 +259,9 @@ SmallMults = () ->
       .attr("class", "subtitle")
       .attr("fill", (d) -> colorScale(d.name))
       .attr("text-anchor", "middle")
-      .attr("dy", "3.8em")
+      .attr("dy", "4em")
       .attr("x", (d) -> graphWidth / 2)
-      .attr("font-size", 8)
+      .attr("font-size", 5)
 
   # ---
   # remove subtitle
@@ -301,7 +302,7 @@ SmallMults = () ->
 
     legend = d3.select("#legend")
       .append("svg")
-      .attr("width", 500)
+      .attr("width", 80)
       .attr("height", 500)
 
     keys = legend.selectAll("g")
@@ -310,14 +311,14 @@ SmallMults = () ->
       .attr("transform", (d,i) -> "translate(#{0},#{40 * (i + 1)})")
 
     keys.append("rect")
-      .attr("width", 5)
-      .attr("height", 5)
+      .attr("width", 10)
+      .attr("height", 10)
       .attr("fill", (d) -> colorScale(d.name))
 
     keys.append("text")
       .text((d) -> d.name)
       .attr("text-anchor", "left")
-      .attr("dx", "1em")
+      .attr("dx", "1.2em")
       .attr("dy", "1em")
 
   return chart
