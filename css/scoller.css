@@ -1,0 +1,92 @@
+body {
+  font-size: 12px;
+  font-family: 'Abel', sans-serif;
+}
+
+#sections {
+  float:right;
+  position: relative;
+  display: inline-block;
+  width: 250px;
+  top: 0px;
+  z-index: -10;
+  padding-bottom: 20px;
+}
+.step {
+  font-size:18px;
+  margin-top:150px;
+  margin-bottom: 200px;
+  line-height: 23px;
+  color: #767678;
+}
+#sections .title {
+  font-size:20px;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: #87CEEB;
+  line-height: 2em;
+}
+#vis {
+  float:left;
+  display: none;
+  position: fixed;
+  top: 40px;
+  font-size: 10px;
+}
+.axis path,
+.axis line {
+  fill: none;
+  stroke: none;
+  shape-rendering: crispEdges;
+}
+
+path.line {
+  fill: none;
+  stroke-width: 1px;
+}
+
+.line.normal {
+  stroke:#87CEEB;
+  stroke-opacity: 0.3;
+}
+
+.line.focused {
+  stroke-width: 2px;
+  stroke-opacity: 1;
+  stroke:#FFB6C1 ;
+}
+.line.focused.high {
+  stroke:#FF7F24 ;
+  stroke-width: 2px;
+}
+.line.focused.start {
+  stroke:#FFB90F ;
+  stroke-width: 2px;
+}
+.line.focused.low {
+  stroke:#FFD700;
+  stroke-width: 2px;
+}
+#menu li{
+  width:100%;
+  display:inline;
+  margin-left:20px;
+  padding-right:420px;
+
+}
+.title-content {
+  font-size:18px;
+  font-weight: bold;
+}
+.arrow-left , .arrow-right {
+  color: gray;
+}
+.mytooltip {
+  position: absolute;
+  z-index: 10;
+}
+.mytooltip p {
+  background-color: white;
+  border: none;
+  padding: 2px;
+}

@@ -1,0 +1,71 @@
+body {
+  font-size: 16px;
+  font-family: 'Abel', sans-serif;
+  margin-top: 50px;
+  margin-left:30px;
+}
+
+
+.control-main {
+    width:350px;
+    float:right;
+    padding-right:30px;
+
+
+  }
+
+.title-content {
+    font-size:18px;
+    font-weight: bold;
+  }
+.arrow-left , .arrow-right {
+      color: gray;
+    }
+#menu li{
+    display:inline;
+    padding:25px;
+    margin-right:10px;
+    margin-left:-55px;
+}
+p.note {
+  font-size: 10px;
+  margin: 10px 0 0 0;
+  width: 400px;
+  color: darkgray;
+}
+
+.x.axis path,.x.axis line {
+    fill: none;
+    stroke: none;
+    }
+
+.y.axis path {
+    fill: none;
+    }
+
+.y.axis line {
+    fill: none;
+    stroke: #eeeeee;
+    shape-rendering: crispEdges;
+    }
+
+.x.axis text, .y.axis text{
+      font-size: 10px;
+      fill:grey;
+    }
+
+.line {
+  fill: none;
+  stroke-width: 1px;
+}
+
+.tick line{
+    stroke: #e0e1e1;
+    opacity: 1;
+    }
+a:hover{
+      cursor:pointer;
+    }
+.bs-example {
+  height:10px;
+}

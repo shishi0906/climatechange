@@ -1,0 +1,81 @@
+h1. Small Multiples with Details on Demand
+
+h2. Usage
+
+h3. First Clone the Repository
+
+<pre>
+git clone git@github.com:vlandham/co2_small_multiple.git
+cd co2_small_multiple
+</pre>
+
+h3. Remove Google Analytics Code
+
+To make things easy on myself, This is the same code that is used to
+power the live demo. As a consequence, my GA code is in the @index.html@ file.
+
+If you could be a nice person and remove or change that in your version,
+I'd appreciate it.
+
+h3. View Demo
+
+Because of how D3 handles importing data, this tutorial should be viewed using a local webserver to serve the pages.
+
+h4. Python webserver
+
+You can start up a local webserver by using python's built-in simple server:
+
+*For Python 2.xx*
+
+<pre>
+python -m SimpleHTTPServer -p 3000
+</pre>
+
+*For Python 3.xx*
+
+<pre>
+python -m http.server
+</pre>
+
+*This assumes you have Python availible from the command line.*
+
+On Windows, you will need to install Python. "Here is one tutorial for that":http://www.anthonydebarros.com/2011/10/15/setting-up-python-in-windows-7/
+
+h4. Ruby webserver
+
+The @thin@ webserver, a ruby gem, can also be used:
+
+<pre>
+thin start
+# might have to run 'bundle install' first
+</pre>
+
+Now go to "http://0.0.0.0:3000":http://0.0.0.0:3000/
+
+and you have a basic visualization
+
+h3. Start Coding
+
+Open up @coffee/vis.coffee@ and start modifying the built in visualization to fit your needs.
+
+h2. Folder Organization
+
+* @/@
+** main vis area
+* @/index.html@
+** main page for your visualization. Loads coffeescript and javascript files.
+* @/coffee/@
+** coffeescript files. @vis.coffee@.
+* @/data/@
+** data dump for @.csv@ and @.json@ files and other data files your vis uses.
+* @/js/@
+** javascript goes here. JS Libraries in @libs@ directory
+* @/css/@
+** put your stylesheets in here
+
+h2. Requirements
+
+To startup the server, you either need @python@, or a bunch of @ruby@ gems (should be simplified in the future).
+
+Run @bundle install@ to get the gems needed. Gems listed in the Gemfile
+
