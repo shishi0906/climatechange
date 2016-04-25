@@ -1,14 +1,14 @@
-var width = 700,
+var width = 550,
     height = 500,
     center = [width / 2, height / 2],
-    defaultFill = "#e0e0e0";
+    defaultFill = "#E18700";
 
-var colorScale = d3.scale.linear().range(["#FFF550", "#FFAF0A"]).interpolate(d3.interpolateLab);
+var colorScale = d3.scale.linear().range(["#FFF68F", "#D77D00"]).interpolate(d3.interpolateLab);
 
 var countryById = d3.map(); // will have id's as keys for countries; see typeAndSet()
 
 var projection = d3.geo.mercator()
-    .scale(150)
+    .scale(85)
     .translate([width/2-20, height/2+30]);
 
 var path = d3.geo.path()
@@ -284,7 +284,6 @@ function mouseover(d){
     tooltip.select(".name").text("No data for " + d.properties.name);
     tooltip.select(".val").text("NA");
   }
-
 
     yScale.domain([0, d3.max(temperatureChanges[d.id], function(u){
         return +u.amount;

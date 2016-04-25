@@ -1,6 +1,7 @@
 body {
-  font-size: 12px;
+  font-size: 16px;
   font-family: 'Abel', sans-serif;
+  color:#767678;
 }
         rect.overlay{
             fill: none;
@@ -52,10 +53,10 @@ body {
             fill: none;
             stroke-width: 1.5px;
             transition: 0.1s;
-            stroke: #E3314C;
+            stroke: #FFCD28;
         }
         path.area{
-            fill: #E3314C;
+            fill: #FFCD28;
             transition: 0.1s;
             stroke: none;
             opacity: 0.2;
@@ -70,6 +71,9 @@ body {
           width:350px;
           float:right;
           padding-right:30px;
+        }
+        svg {
+          margin-left: 30px;
         }
         svg,	.control-main {
           display:inline-block;

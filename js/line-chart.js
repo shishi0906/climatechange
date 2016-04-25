@@ -3,7 +3,7 @@ var fullheight = 500;
 
 var margin = {
 top: 50,
-right: 20,
+right: 50,
 bottom: 20,
 left: 50
 };
@@ -36,9 +36,9 @@ var yAxis = d3.svg.axis()
 .scale(yScale)
 .orient("left")
 .innerTickSize(0);
-// var tooltip = d3.select("body")
-//       	.append("div")
-//       	.attr("class", "mytooltip");
+var tooltip = d3.select("body")
+      	.append("div")
+      	.attr("class", "mytooltip");
 //Configure line generator
 // each line dataset must have a d.year and a d.rate for this to work.
 var line = d3.svg.line()
@@ -67,7 +67,7 @@ svg.append("g")
     .append("text")
     .attr("x", width)
     .attr("y", margin.bottom / 3)
-    .attr("dy", "1em")
+    .attr("dy", "1.5em")
     .style("text-anchor", "end")
     .attr("class", "label")
     .text("Month");
@@ -79,7 +79,7 @@ svg.append("g")
     .attr("transform", "rotate(-90)")
     .attr("x", -margin.top)
     .attr("y", -2*margin.left / 3)
-    .attr("dy", "1em")
+    .attr("dy", "1.5em")
     .style("text-anchor", "end")
     .attr("class", "label")
     .text("Tempearture");
@@ -161,6 +161,9 @@ function draw_lines(dataset) {
 
     groups.exit().transition().duration(1000).attr("opacity", 0).remove();
 
+
+
+
     //Within each group, create a new line/path,
     //binding just the rates data to each one
     var lines = groups.selectAll("path.line")
@@ -183,31 +186,65 @@ function draw_lines(dataset) {
     // same for yAxis but with more transform and a title
     svg.select(".y.axis").transition().duration(300).call(yAxis);
 
-}
-// d3.selectAll("g.lines")
-// 					.on("mouseover", mouseoverFunc)
-// 					.on("mouseout", mouseoutFunc)
-// 					.on("mousemove", mousemoveFunc);  // this version calls a named function.
-// 			}); // end of data csv
-// 	function mouseoverFunc(d) {
-// 		// line styling:
-// 		// this is the g element. select it, then the line inside it!
-// 		//console.log(d, this);
-// 		d3.selectAll("path.line").classed("unfocused", true);
-// 		// now undo the unfocus on the current line and set to focused.
-// 		d3.select(this).select("path.line").classed("unfocused", false).classed("focused", true);
-// 		tooltip
-// 			.style("display", null) // this removes the display none setting from it
-// 			.html("<p>" + d.year + "</p>");
-// 	}
-// 	function mouseoutFunc() {
-// 			// this removes special classes for focusing from all lines. Back to default.
-// 			d3.selectAll("path.line").classed("unfocused", false).classed("focused", false);
-// 			tooltip.style("display", "none");  // this sets it to invisible!
-// 	}
-// 	function mousemoveFunc(d) {
-// 		//console.log("events", window.event, d3.event);
-// 		tooltip
-// 			.style("top", (d3.event.pageY - 10) + "px" )
-// 			.style("left", (d3.event.pageX + 10) + "px");
-// 	}
+    groups.append("text")
+  .attr("x", function(d) {
+    if (d.temperatures.length != 0) {
+      var lastMonth = d.temperatures[d.temperatures.length-1].month;
+      return xScale(dateFormat.parse(lastMonth));
+    }
+  })
+  .attr("y", function(d) {
+    if (d.temperatures.length != 0) {
+      var lastTemperature = d.temperatures[d.temperatures.length-1].temperature;
+      return yScale(+lastTemperature);
+    }
+  })
+  .text(function(d) {
+    return d.year;
+  })
+  .classed("hide", false)
+  // .attr ("style", function(d) {
+  //   // hide the labels that are too "low" to be interesting
+  //   var lastValue = d.temperatures[d.temperatures.length -1].temperature;
+  //   if (lastValue == 110 ) {
+  //     return "display:block";
+  //   }
+  // });
+    d3.selectAll("g.lines")
+    					.on("mouseover", mouseoverFunc)
+    					.on("mouseout", mouseoutFunc)
+    					.on("mousemove", mousemoveFunc);
+  }
+              function mouseoverFunc(d) {
+                d3.select(this)
+                  .transition()
+                  .duration(50)
+                  .style("opacity", 1);
+            		// line styling:
+            		// this is the g element. select it, then the line inside it!
+            		//console.log(d, this);
+            		// d3.selectAll("path.line").classed("unfocused", true);
+            		// // now undo the unfocus on the current line and set to focused.
+            		// d3.select(this).select("path.line").classed("unfocused", false).classed("focused", true);
+            		tooltip
+            			.style("display", null) // this removes the display none setting from it
+            			.html("<p>" + d.year + "</p>");
+            	}
+            	function mouseoutFunc() {
+                d3.select(this)
+                    .transition()
+                    .style("opacity", 0);
+            			// this removes special classes for focusing from all lines. Back to default.
+                  // d3.selectAll("path.line").classed("high", true).classed("focused", true);
+                  // d3.selectAll("path.line").classed("start", true).classed("focused", true);
+                  // d3.selectAll("path.line").classed("low", true).classed("focused", true);
+            			// d3.selectAll("path.line").classed("unfocused", false).classed("focused", false);
+            			tooltip.style("display", "none");  // this sets it to invisible!
+            	}
+
+            	function mousemoveFunc(d) {
+            		//console.log("events", window.event, d3.event);
+            		tooltip
+            			.style("top", (d3.event.pageY - 10) + "px" )
+            			.style("left", (d3.event.pageX + 10) + "px");
+            }

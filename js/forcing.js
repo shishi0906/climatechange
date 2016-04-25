@@ -54,7 +54,7 @@ var yAxis = d3.svg.axis()
     .scale(y)
     .tickFormat(function(d) { return d;}) // should be a ranking of them?
     .innerTickSize(-width)
-    .tickPadding(10)
+    .tickPadding(7)
     .outerTickSize(0)
     .orient("left");
 

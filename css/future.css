@@ -1,0 +1,29 @@
+body {
+  font-size: 14px;
+  font-family: 'Abel', sans-serif;
+  color:#767678;
+}
+h2 {
+  font-size:18px;
+
+}
+#part1 {
+  height:350px;
+  position:relative;
+  float:right;
+  color:#767678;
+}
+
+#image-background {
+  width: 50%;
+  height: 100%;
+  margin-right:50px;
+  margin-bottom:50px;
+}
+#part2 {
+  font-size:14px;
+}
+#part3 li{
+  font-size:12px;
+  margin-top:10px;
+}

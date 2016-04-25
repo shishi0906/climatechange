@@ -1,4 +1,4 @@
-var fullwidth = 500;
+var fullwidth = 550;
 var fullheight = 400;
 var margin = { top: 20, right: 50, bottom: 50, left: 50};
 var width = fullwidth - margin.left - margin.right;
@@ -103,7 +103,7 @@ d3.csv("data/CO2 concetration monthly.csv", function(myData) {
     })
     .attr("d", line)  // line is a function that will operate on the data array, with x and y.
     .attr("fill", "none")
-    .attr("stroke", "steelblue")
+    .attr("stroke","orange")
     .attr("stroke-width", 2);
     var lastItem = myData[myData.length - 1];
       svg.append("text")
@@ -138,13 +138,7 @@ d3.csv("data/CO2 concetration monthly.csv", function(myData) {
     .attr("class", "y axis")
     .call(yAxis);
 });
-svg.append("g")
-  .append("line")
-  .attr("class","line")
-  .attr("x1",0)
-  .attr("y1",0)
-  .attr("x2",xScale(403.82))
-  .attr("y2",yScale(403.82));
+
 
 function mouseoverFunc(d) {
 // Adding a subtle animation to increase the dot size when over it!
@@ -155,7 +149,7 @@ d3.select(this)
   .attr("r", 4);
 tooltip
   .style("display", null) // this removes the display none setting from it
-  .html("<p>Year: " + d.year +
+  .html("<p>Month-Year: " + d.year +
         "<br>Emissions: " + d.emissions + " ppm</p>");
 }
 function mousemoveFunc(d) {

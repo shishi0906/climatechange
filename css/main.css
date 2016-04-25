@@ -1,5 +1,6 @@
 body {
-  font-size: 12px;
+  font-size: 16px;
+  color:#767678;
   font-family: 'Abel', sans-serif;
   margin-top: 50px;
   margin-left:30px;
@@ -32,10 +33,10 @@ path.line.recentYears {
   stroke:red;
 }
 path.line.upLine {
-  stroke:#FF7F24
+  stroke:#FF7F24;
 }
 path.line.downLine {
-  stroke:#87CEEB
+  stroke:#87CEEB;
 }
 text.show {
   font: 12px sans-serif;
@@ -63,7 +64,7 @@ text.linelabel {
   color: gray;
 }
 circle {
-  fill: lightblue;
+  fill: #FFB6C1;
 }
 .tooltip {
   position: absolute;
@@ -95,4 +96,9 @@ svg,	.control-main {
 }
 .arrow-left , .arrow-right {
   color: gray;
+}
+#button {
+  border-width:1px;
+  border-color:black;
+  padding:5px;
 }

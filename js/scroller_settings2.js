@@ -56,7 +56,9 @@ var update = function(value) {
       console.log("in case", value);
       localdata = data;
       years = data.filter(function(d) {
-        return d.year == "2015" || d.year == "2014" || d.year == "2013" || d.year == "2012" || d.year == "2011" || d.year == "2010";
+        return d.year == "2015" || d.year == "2014" || d.year == "2013" || d.year == "2012" || d.year == "2011" || d.year == "2010"
+        || d.year == "2009" || d.year == "2008" || d.year == "2007" || d.year == "2006" || d.year == "2005" || d.year == "2004"
+        || d.year == "2003" || d.year == "2002" || d.year == "2001" || d.year == "2010";
       });
       yearGroup = "high"
       break;
