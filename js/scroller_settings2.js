@@ -28,10 +28,13 @@ function focus_years(years,yearGroup) {
     // d3.selectAll("path.line").classed("focused", false);
     // d3.selectAll("path.line").classed("normal", true);
     d3.selectAll("path.line").attr("class","line normal");
+    d3.selectAll("text.label").classed("hide", true);
     years.forEach(function (d) {
         var year = d.year;
         var line = d3.select("g.lines#y" + year + " path.line");
         line.classed("focused", true);
+        var text = d3.select("text#y" + year);
+        text.classed("hide",false);
         if(yearGroup!=""){
           line.classed(yearGroup, true);
         }
@@ -56,23 +59,21 @@ var update = function(value) {
       console.log("in case", value);
       localdata = data;
       years = data.filter(function(d) {
-        return d.year == "2015" || d.year == "2014" || d.year == "2013" || d.year == "2012" || d.year == "2011" || d.year == "2010"
-        || d.year == "2009" || d.year == "2008" || d.year == "2007" || d.year == "2006" || d.year == "2005" || d.year == "2004"
-        || d.year == "2003" || d.year == "2002" || d.year == "2001" || d.year == "2010";
+        return d.year == "2015" || d.year == "2014" || d.year == "2013";
       });
-      yearGroup = "high"
+      yearGroup = "high";
       break;
     case 2:
       console.log("in case", value);
       //yScale = d3.scale.sqrt().range([margin.top, height - margin.bottom]);
       localdata = data;
-      years = data.filter(function(d) {return d.year == "1880" || d.year == "1881" || d.year == "1882" || d.year == "1883" || d.year == "1884" || d.year == "1885";});
-      yearGroup = "start"
+      years = data.filter(function(d) {return d.year == "1880" || d.year == "1881" || d.year == "1882" ;});
+      yearGroup = "start";
       break;
     case 3:
       console.log("in case", value);
       years = data.filter(function(d) {return d.year == "1909" || d.year == "1910" || d.year == "1911" || d.year == "1912";});
-      yearGroup = "low"
+      yearGroup = "low";
       break;
     default:
       years = [];

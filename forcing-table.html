@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>sorted table</title>
+	</head>
+	<link href="css/force-table.css" rel="stylesheet" type="text/css">
+
+	<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+	<body>
+
+		<h2>Climate Change Forces Sorting Table</h2>
+		<p class=note>Click each hearder to sort data.</p>
+
+		<div id="table"></div>
+
+	</body>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+		<!-- load the function file you need before you call it... -->
+		<script type="text/javascript" src="stupidtable.js"></script>
+
+		<script type="text/javascript">
+			//Load in contents of CSV file, and do things to the data.
+			d3.csv("data/forcings.csv", function(error, myData) {
+				if (error) {
+					console.log("Had an error loading file.");
+				}
+
+				var myArray = [];
+				var Year = [];
+
+
+				myData.forEach(function(d, i){
+
+			 	 myArray.push([d.year, d.Anthropogenic_tropospheric_aerosol, d.Greenhouse_gases, d.Land_use, d.Orbital_changes, d.Ozone, d.Solar, d.Volcanic, ]);
+				 Year.push(d.year);
+				});
+				var table = d3.select("#table").append("table");
+				var header = table.append("thead").append("tr");
+				// Made some objects to construct the header in code:
+				// The sort_type is for the Jquery sorting function.
+				var headerObjs = [
+					{ label: "Year", sort_type: "int" },
+					{ label: "Anthropogenic Tropospheric Aerosol", sort_type: "int" },
+					{ label: "Greenhouse Gases", sort_type: "int" },
+					{ label: "Land Use", sort_type: "int" },
+					{ label: "Orbital Changes", sort_type: "int" },
+					{ label: "Ozone", sort_type: "int" },
+					{ label: "Solar", sort_type: "int" },
+					{ label: "Volcanic", sort_type: "int" },
+				];
+				header
+					.selectAll("th")
+					.data(headerObjs)
+					.enter()
+					.append("th")
+					.attr("data-sort", function (d) { return d.sort_type; })
+          .text(function(d) { return d.label; });
+        var tablebody = table.append("tbody");
+        rows = tablebody
+        	.selectAll("tr")
+        	.data(myArray)
+        	.enter()
+        	.append("tr");
+      	var colorScale = d3.scale.linear()
+      		.domain(d3.extent(Year))
+      		.range(["#E6F5FF", "#0099FF"]);
+        cells = rows.selectAll("td")
+
+        	.data(function(d) {
+        		return d;
+        	})
+        	.enter()
+        	.append("td")
+        	.style("background-color", function(d,i) {
+
+        		if (i === 0) {
+        			return colorScale(d);
+        		}
+        	})
+        	.text(function(d) {
+        		return d;
+        	});
+
+      $("table").stupidtable();
+			});
+		</script>
+
+</html>

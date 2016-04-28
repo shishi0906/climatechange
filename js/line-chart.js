@@ -202,7 +202,12 @@ function draw_lines(dataset) {
   .text(function(d) {
     return d.year;
   })
-  .classed("hide", false)
+  .classed("label", true)
+  .attr("id",function (d) {
+    return "y" + d.year;
+  })
+  .classed("hide", true);
+
   // .attr ("style", function(d) {
   //   // hide the labels that are too "low" to be interesting
   //   var lastValue = d.temperatures[d.temperatures.length -1].temperature;
@@ -219,13 +224,14 @@ function draw_lines(dataset) {
                 d3.select(this)
                   .transition()
                   .duration(50)
-                  .style("opacity", 1);
+                  .style("opacity", 1)
+                  .attr("stroke", 3);
             		// line styling:
             		// this is the g element. select it, then the line inside it!
             		//console.log(d, this);
-            		// d3.selectAll("path.line").classed("unfocused", true);
+            		//d3.select("this").classed("unfocused", true);
             		// // now undo the unfocus on the current line and set to focused.
-            		// d3.select(this).select("path.line").classed("unfocused", false).classed("focused", true);
+            		//d3.select(this).select("path.line").classed("unfocused", false).classed("focused", true);
             		tooltip
             			.style("display", null) // this removes the display none setting from it
             			.html("<p>" + d.year + "</p>");
@@ -233,12 +239,11 @@ function draw_lines(dataset) {
             	function mouseoutFunc() {
                 d3.select(this)
                     .transition()
-                    .style("opacity", 0);
+                    .style("opacity", 1)
+                    .attr("stroke",1);
             			// this removes special classes for focusing from all lines. Back to default.
-                  // d3.selectAll("path.line").classed("high", true).classed("focused", true);
-                  // d3.selectAll("path.line").classed("start", true).classed("focused", true);
-                  // d3.selectAll("path.line").classed("low", true).classed("focused", true);
-            			// d3.selectAll("path.line").classed("unfocused", false).classed("focused", false);
+
+            			//d3.selectAll("path.line").classed("unfocused", false).classed("focused", false);
             			tooltip.style("display", "none");  // this sets it to invisible!
             	}
 

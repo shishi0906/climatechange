@@ -277,9 +277,19 @@ function mouseover(d){
     .style("top", (d3.event.pageY - 10) + "px" )
     .style("left", (d3.event.pageX + 10) + "px");
 
+  var europe = ["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech","Denmak","Estonia","Finland","France",
+  "Germany","Greece","Hungary","Ireland","Italy","Latvia","Lithuania","Luxembourg","Malta","Netherlands","Poland",
+  "Portugal","Romania","Slovakia","Slovenia","Spain","Sweden","United Kingdom"]; // add the rest!
+
   if (countryById.get(d.id) && countryById.get(d.id)["2012"]) {
-     tooltip.select(".name").text(countryById.get(d.id)['country']);
-     tooltip.select(".val").text(countryById.get(d.id)["2012"]);
+    var countryName = countryById.get(d.id)['country'];
+    if (europe.indexOf(countryName) !== -1) {
+       tooltip.select(".name").text("Europe");
+       tooltip.select(".val").text(countryById.get(d.id)["2012"]);
+     } else {
+       tooltip.select(".name").text(countryName);
+       tooltip.select(".val").text(countryById.get(d.id)["2012"]);
+     }
   } else {
     tooltip.select(".name").text("No data for " + d.properties.name);
     tooltip.select(".val").text("NA");
